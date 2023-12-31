@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+.top-bar {
+    background-color: #d9d9d9;
+    padding: 4vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    color: black;
+}
+
+.flex-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: #c1bbbb;
+    overflow: auto;
+    position: relative;
+}
+
+.flex-container > div {
+    position: relative;
+    background-color: #c1bbbb;
+    
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    width: 48%;
+    height: 42%;
+}
+
+.flex-container > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.flex-container > div .caption {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 60%;
+    height: auto;
+    padding: 10px;
+    background-color:#c1bbbb;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border:4px solid black;
+}
+
+.info-container > div {
+    height: 30%;
+    margin: 20px;
+    text-align: center;
+    /* flex: 1; */
+}

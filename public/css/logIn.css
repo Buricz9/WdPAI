@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-image: url('../../src/images/imageLogin.png');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 60px;
+  color: white;
+  margin-left: 50%; /* Zmieniłem margines na lewy */
+}
+
+.word {
+  padding: 10px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-field::placeholder {
+  color: white;
+}
+
+.input-field,
+.login-button {
+  width: 40%;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  border: none;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.login-button {
+  width: 45%;
+}
+.additional-links {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 200px; */
+}
+
+.icon-link {
+  width: 46px;
+  height: 46px;
+  margin-right: 10px;
+  background-size: cover;
+}
+
+.facebook,
+.gmail-logo {
+  width: 46px;
+  height: 46px;
+}
+
+/* main */
