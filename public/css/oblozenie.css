@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.top-bar {
+    background-color: #d9d9d9;
+    padding: 4vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    color: black;
+}
+
+.flex-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../../src/images/ludzie.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flex-container > div {
+    position: relative;
+    background-color: rgba(193, 187, 187, 0.7);
+    justify-content: center;
+    margin: 30px; /* Odległość między divami w jednym rzędzie */
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    width: calc(50% - 60px);
+    height: 25%;
+}
+
+.flex-container > div:nth-child(n+3) {
+    margin-bottom: 20%; /* Mniejszy margines dla divów w drugim rzędzie */
+}
+
+@media (max-width: 768px) {
+    .flex-container > div {
+        width: calc(100% - 60px);
+    }
+}
