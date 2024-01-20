@@ -1,13 +1,18 @@
 <?php
 
-require 'Routing.php';
+require 'Router.php';
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url( $path, PHP_URL_PATH);
+Router::get('', 'DefaultController');
+Router::get('main', 'DefaultController');
+Router::post('login', 'SecurityController');
+Router::get('sprzet', 'DefaultController');
+Router::get('kalendarz', 'DefaultController');
+Router::get('oblozenie', 'DefaultController');
+Router::get('registration', 'DefaultController');
+Router::get('cardio', 'DefaultController');
+Router::get('wolneCiezary', 'DefaultController');
+Router::get('maszyny', 'DefaultController');
 
-
-Routing::get('', 'DefaultController');
-Routing::get('log', 'DefaultController');
-Routing::get('main', 'DefaultController');
-
-Routing::run($path);
+Router::run($path);
