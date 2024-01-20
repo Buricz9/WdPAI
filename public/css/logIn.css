@@ -74,3 +74,14 @@ body {
   font-size: small;
   margin-top: 10px; /* Zmieniłem wartość marginesu górnego */
 }
+
+.login-form {
+  display: flex;
+  font-size: 25px;
+  flex-direction: column; /* Dodana reguła dla formularza */
+  align-items: center;
+  width: 800px;
+}
+#fitCheck {
+  font-size: 100px;
+}
