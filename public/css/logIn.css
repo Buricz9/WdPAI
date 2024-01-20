@@ -9,7 +9,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .right-side {
   flex: 1;
   display: flex;
@@ -70,4 +69,8 @@ body {
   height: 46px;
 }
 
-/* main */
+.registration {
+  font-family: 'Nowa-Czcionka', sans-serif;
+  font-size: small;
+  margin-top: 10px; /* Zmieniłem wartość marginesu górnego */
+}

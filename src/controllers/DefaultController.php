@@ -4,14 +4,14 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController {
 
-    public function login()
+    public function log()
     {
-        $this->render('login');
+        $this->render('log');
     }
 
-    public function projects()
+    public function main()
     {
-        $this->render('projects');
+        $this->render('main');
     }
 
 }
