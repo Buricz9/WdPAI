@@ -32,18 +32,5 @@
         <button type="button" onclick="location.href='main'">Zarejestruj się</button>
     </form>
 </div>
-
-<script>
-    function togglePasswordVisibility(inputId) {
-        const passwordInput = document.getElementById(inputId);
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-        } else {
-            passwordInput.type = "password";
-        }
-    }
-</script>
-
 </body>
 </html>

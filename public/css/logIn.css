@@ -1,11 +1,8 @@
 body {
-  margin: 0;
   overflow: hidden;
   position: relative;
   background-image: url('../../src/images/imageLogin.png');
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
 }
