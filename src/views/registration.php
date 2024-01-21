@@ -11,7 +11,9 @@
 
 <div class="registration-container">
     <h2>Registration</h2>
-    <form class="registration" action="registration" method="POST">
+    <div class="messages"></div>
+
+    <form class="registration" action="registration" method="POST" onsubmit="return validateForm()">
         <div class="messages">
             <?php
             if(isset($messages)){

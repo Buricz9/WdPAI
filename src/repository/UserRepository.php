@@ -5,7 +5,6 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
-
     public function getUser(string $email)
     {
         $stmt = $this->database->connect()->prepare('
@@ -27,12 +26,13 @@ class UserRepository extends Repository
             $user['surname']
         );
     }
+
     public function addUser(User $user)
     {
         $stmt = $this->database->connect()->prepare('
-        INSERT INTO public."Users" (name, surname, email, password)
-        VALUES (?, ?, ?, ?)
-    ');
+            INSERT INTO public."Users" (name, surname, email, password)
+            VALUES (?, ?, ?, ?)
+        ');
 
         $stmt->execute([
             $user->name,
@@ -41,5 +41,4 @@ class UserRepository extends Repository
             $user->getPassword(),
         ]);
     }
-
 }
