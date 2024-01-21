@@ -6,6 +6,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .right-side {
   flex: 1;
   display: flex;
@@ -15,7 +16,52 @@ body {
   padding: 20px;
   font-size: 60px;
   color: white;
-  margin-left: 50%; /* Zmieniłem margines na lewy */
+  margin-left: 50%;
+}
+
+/* Media query for tablets */
+@media screen and (max-width: 1024px) {
+  .right-side {
+    margin-left: 0;
+  }
+
+  .input-field,
+  .login-button {
+    width: 60%;
+  }
+
+  .login-button {
+    width: 65%;
+  }
+}
+
+/* Media query for phones */
+@media screen and (max-width: 768px) {
+  .right-side {
+    margin-left: 0;
+  }
+
+  body {
+    background-image: none;
+    background-color: #37474f; /* Twój wybrany kolor */
+  }
+
+  .input-field,
+  .login-button {
+    width: 90%;
+  }
+
+  .login-button {
+    width: 95%;
+  }
+}
+
+/* Further adjustment for smaller phones */
+@media screen and (max-width: 360px) {
+  .input-field,
+  .login-button {
+    font-size: 20px;
+  }
 }
 
 .word {
@@ -44,13 +90,25 @@ body {
   color: white;
 }
 
+/* Media query for phones */
+@media screen and (max-width: 480px) {
+  .input-field,
+  .login-button {
+    width: 90%;
+  }
+
+  .login-button {
+    width: 95%;
+  }
+}
+
 .login-button {
   width: 45%;
 }
+
 .additional-links {
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 200px; */
 }
 
 .icon-link {
@@ -69,16 +127,17 @@ body {
 .registration {
   font-family: 'Nowa-Czcionka', sans-serif;
   font-size: small;
-  margin-top: 10px; /* Zmieniłem wartość marginesu górnego */
+  margin-top: 10px;
 }
 
 .login-form {
   display: flex;
   font-size: 25px;
-  flex-direction: column; /* Dodana reguła dla formularza */
+  flex-direction: column;
   align-items: center;
   width: 800px;
 }
+
 #fitCheck {
   font-size: 100px;
 }
