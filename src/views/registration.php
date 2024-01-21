@@ -11,27 +11,22 @@
 
 <div class="registration-container">
     <h2>Registration</h2>
-
-    <form id="registrationForm"> <!-- Added id to the form -->
-        <label for="username">Nazwa użytkownika:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="email">Adres email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Hasło:</label>
-        <div class="password-container">
-            <input type="password" id="password" name="password" required>
-            <span class="toggle-password" onclick="togglePasswordVisibility('password')">&#x1F441;</span>
+    <form class="registration" action="registration" method="POST">
+        <div class="messages">
+            <?php
+            if(isset($messages)){
+                foreach($messages as $message) {
+                    echo $message;
+                }
+            }
+            ?>
         </div>
-
-        <label for="confirm-password">Potwierdź hasło:</label>
-        <div class="password-container">
-            <input type="password" id="confirm-password" name="confirm-password" required>
-            <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password')">&#x1F441;</span>
-        </div>
-
-        <button type="submit">Zarejestruj się</button> <!-- Changed type to submit -->
+        <input name="email" type="text" placeholder="email@email.com">
+        <input name="password" type="password" placeholder="password">
+        <input name="confirmedPassword" type="password" placeholder="confirm password">
+        <input name="name" type="text" placeholder="name">
+        <input name="surname" type="text" placeholder="surname">
+        <button type="submit">registration</button>
     </form>
 </div>
 </body>

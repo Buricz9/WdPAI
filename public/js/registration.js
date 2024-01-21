@@ -1,22 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const registrationForm = document.getElementById('registrationForm');
-    const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
+const form = document.querySelector("form");
+const emailInput = form.querySelector('input[name="email"]');
+const confirmedPasswordInput = form.querySelector('input[name="confirmedPassword"]');
 
-    registrationForm.addEventListener('submit', function(event) {
-        if (passwordInput.value !== confirmPasswordInput.value) {
-            event.preventDefault();
-            alert("Hasła nie są takie same!");
-        }
-    });
+function isEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
 
-    function togglePasswordVisibility(inputId) {
-        const passwordInput = document.getElementById(inputId);
+function arePasswordsSame(password, confirmedPassword) {
+    return password === confirmedPassword;
+}
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-        } else {
-            passwordInput.type = "password";
-        }
-    }
-});
+function markValidation(element, condition) {
+    !condition ? element.classList.add('no-valid') : element.classList.remove('no-valid');
+}
+
+function validateEmail() {
+    setTimeout(function () {
+            markValidation(emailInput, isEmail(emailInput.value));
+        },
+        1000
+    );
+}
+
+function validatePassword() {
+    setTimeout(function () {
+            const condition = arePasswordsSame(
+                confirmedPasswordInput.previousElementSibling.value,
+                confirmedPasswordInput.value
+            );
+            markValidation(confirmedPasswordInput, condition);
+        },
+        1000
+    );
+}
+
+emailInput.addEventListener('keyup', validateEmail);
+confirmedPasswordInput.addEventListener('keyup', validatePassword);
