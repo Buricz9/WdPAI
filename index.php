@@ -18,5 +18,7 @@ Router::get('maszyny', 'DefaultController');
 Router::post('addTraining', 'DefaultController'); // Dodaj tę linię
 Router::get('profil', 'DefaultController');
 Router::get('logout', 'SecurityController'); // Dodaj ścieżkę dla wylogowania
+Router::post('delete_user', 'DefaultController'); // Dodaj ścieżkę dla usuwania użytkownika
+Router::get('pomoc', 'DefaultController'); // Dodaj nową trasę dla strony pomocy
 
 Router::run($path);

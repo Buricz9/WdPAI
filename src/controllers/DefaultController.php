@@ -5,7 +5,7 @@ require_once __DIR__.'/../repository/TrainingRepository.php'; // Dodaj import
 
 class DefaultController extends AppController {
 
-    private function checkIfLoggedIn()
+    protected function checkIfLoggedIn()
     {
         // Sprawdzenie, czy użytkownik jest zalogowany (czy ciasteczko istnieje)
         if (!isset($_COOKIE['user_email'])) {
@@ -17,7 +17,7 @@ class DefaultController extends AppController {
     }
     public function index()
     {
-        $this->checkIfLozggedIn();
+//        $this->checkIfLozggedIn();
         $this->render('login');
     }
 
@@ -66,6 +66,11 @@ class DefaultController extends AppController {
         $this->checkIfLoggedIn();
         $this->render('profil');
     }
+    public function pomoc()
+    {
+        $this->checkIfLoggedIn();
+        $this->render('pomoc');
+    }
 
 
     public function addTraining()
@@ -93,6 +98,27 @@ class DefaultController extends AppController {
             // Redirect to the calendar page
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/kalendarz");
+        }
+    }
+    public function delete_user()
+    {
+        $this->checkIfLoggedIn();
+
+        if ($this->isPost()) {
+            $userEmailToDelete = $_POST['user_email'];
+
+            // Sprawdź, czy zalogowany użytkownik to administrator
+            if ($_COOKIE['user_email'] === 'admin@admin.pl') {
+                $userRepository = new UserRepository();
+                $userRepository->deleteUser($userEmailToDelete);
+
+                // Przekierowanie lub inny komunikat po usunięciu użytkownika
+                $url = "http://$_SERVER[HTTP_HOST]";
+                header("Location: {$url}/profil");
+            } else {
+                // Komunikat o braku uprawnień do usuwania użytkowników
+                $this->render('profil', ['messages' => ['Brak uprawnień do usuwania użytkowników.']]);
+            }
         }
     }
 }

@@ -44,14 +44,28 @@ class UserRepository extends Repository
     public function isEmailUnique($email)
     {
         $stmt = $this->database->connect()->prepare('
-        SELECT COUNT(*) as count FROM public."Users" WHERE "email" = :email
+        SELECT email FROM public."Users"
     ');
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
         $stmt->execute();
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $existingEmails = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        // Jeśli count wynosi 0, to adres e-mail jest unikalny
-        return $result['count'] === '0';
+        // Convert all emails to lowercase for case-insensitive comparison
+        $lowercaseExistingEmails = array_map('strtolower', $existingEmails);
+        $lowercaseEmail = strtolower($email);
+
+        // Check if the provided email is unique
+        return !in_array($lowercaseEmail, $lowercaseExistingEmails);
     }
+    public function deleteUser(string $email)
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM public."Users" WHERE "email" = :email
+        ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+
 }

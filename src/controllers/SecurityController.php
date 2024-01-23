@@ -60,35 +60,34 @@ class SecurityController extends AppController {
         }
 
         $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmedPassword = $_POST['confirmedPassword'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
 
+        // Check email uniqueness
         $userRepository = new UserRepository();
         if ($userRepository->isEmailUnique($email)) {
-            $password = $_POST['password'];
-            $confirmedPassword = $_POST['confirmedPassword'];
-            $name = $_POST['name'];
-            $surname = $_POST['surname'];
+            // Perform other checks if email is unique
+            if (
+                !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+                strlen($password) < 8 ||
+                $password !== $confirmedPassword ||
+                empty(trim($name)) ||
+                empty(trim($surname))
+            ) {
+                return $this->render('registration', ['messages' => ['Please provide valid data']]);
+            }
+
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+            $user = new User($email, $hashedPassword, $name, $surname);
+
+            $this->userRepository->addUser($user);
+
+            return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
         } else {
             return $this->render('registration', ['messages' => ['Email address is already in use.']]);
         }
-
-        // Sprawdzenie poprawności danych
-        if (
-            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-            strlen($password) < 8 ||
-            $password !== $confirmedPassword ||
-            empty(trim($name)) ||
-            empty(trim($surname))
-        ) {
-            return $this->render('registration', ['messages' => ['Please provide valid data']]);
-        }
-
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-        $user = new User($email, $hashedPassword, $name, $surname);
-
-        $this->userRepository->addUser($user);
-
-        return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
     }
-
 }
