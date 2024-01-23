@@ -41,4 +41,17 @@ class UserRepository extends Repository
             $user->getPassword(),
         ]);
     }
+    public function isEmailUnique($email)
+    {
+        $stmt = $this->database->connect()->prepare('
+        SELECT COUNT(*) as count FROM public."Users" WHERE "email" = :email
+    ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Jeśli count wynosi 0, to adres e-mail jest unikalny
+        return $result['count'] === '0';
+    }
 }

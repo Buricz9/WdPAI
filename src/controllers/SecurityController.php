@@ -60,10 +60,16 @@ class SecurityController extends AppController {
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirmedPassword = $_POST['confirmedPassword'];
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
+
+        $userRepository = new UserRepository();
+        if ($userRepository->isEmailUnique($email)) {
+            $password = $_POST['password'];
+            $confirmedPassword = $_POST['confirmedPassword'];
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+        } else {
+            return $this->render('registration', ['messages' => ['Email address is already in use.']]);
+        }
 
         // Sprawdzenie poprawności danych
         if (
