@@ -29,8 +29,27 @@
 
             <button type="submit" class="submit-button">Dodaj trening</button>
         </form>
+        <!-- Display user's trainings -->
+        <h2>Twoje treningi:</h2>
+        <ul>
+            <?php
+            $userEmail = $_COOKIE['user_email'] ?? null;
 
+            if ($userEmail) {
+                $trainingRepository = new TrainingRepository();
+                $userTrainings = $trainingRepository->getUserTrainings($userEmail);
+
+                foreach ($userTrainings as $training) {
+                    echo '<li>';
+                    echo '<strong>Data treningu:</strong> ' . $training['time'] . '<br>';
+                    echo '<strong>Opis treningu:</strong> ' . $training['description'];
+                    echo '</li>';
+                }
+            }
+            ?>
+        </ul>
     </section>
+
 
 </main>
 

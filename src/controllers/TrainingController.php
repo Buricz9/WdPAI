@@ -9,6 +9,7 @@ class TrainingController extends AppController {
 
     public function addTraining()
     {
+        $userEmail = $_COOKIE['user_email'] ?? null;
         // Dodawanie treningu do bazy danych
         if ($this->isPost()) {
             $description = $_POST['description'];
@@ -19,11 +20,14 @@ class TrainingController extends AppController {
                 return $this->render('kalendarz', ['messages' => ['Please provide valid data']]);
             }
 
-            // Dodanie treningu do bazy danych
-            $trainingRepository = new TrainingRepository();
-            $trainingRepository->addTraining($description, $date);
+            // Add training with the user's email
+            $description = $_POST['description'];
+            $date = $_POST['date'];
 
-            // Przekierowanie użytkownika na stronę kalendarza
+            $trainingRepository = new TrainingRepository();
+            $trainingRepository->addTraining($description, $date, $userEmail);
+
+            // Redirect to the calendar page
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/kalendarz");
         }

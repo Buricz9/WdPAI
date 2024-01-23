@@ -19,51 +19,6 @@ body {
   margin-left: 50%;
 }
 
-/* Media query for tablets */
-@media screen and (max-width: 1024px) {
-  .right-side {
-    margin-left: 0;
-  }
-
-  .input-field,
-  .login-button {
-    width: 60%;
-  }
-
-  .login-button {
-    width: 65%;
-  }
-}
-
-/* Media query for phones */
-@media screen and (max-width: 768px) {
-  .right-side {
-    margin-left: 0;
-  }
-
-  body {
-    background-image: none;
-    background-color: #37474f; /* Twój wybrany kolor */
-  }
-
-  .input-field,
-  .login-button {
-    width: 90%;
-  }
-
-  .login-button {
-    width: 95%;
-  }
-}
-
-/* Further adjustment for smaller phones */
-@media screen and (max-width: 360px) {
-  .input-field,
-  .login-button {
-    font-size: 20px;
-  }
-}
-
 .word {
   padding: 10px;
   margin-top: 50px;
@@ -90,16 +45,8 @@ body {
   color: white;
 }
 
-/* Media query for phones */
-@media screen and (max-width: 480px) {
-  .input-field,
-  .login-button {
-    width: 90%;
-  }
-
-  .login-button {
-    width: 95%;
-  }
+.login-button {
+  width: 65%;
 }
 
 .login-button {
@@ -140,4 +87,71 @@ body {
 
 #fitCheck {
   font-size: 100px;
+}
+/* Media query for tablets */
+
+/* Media query for phones */
+/* Media query dla szerokości mniejszej niż 768px (telefony) */
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: hidden;
+    position: relative;
+    background-image: none;
+    background-color: burlywood; /* Twój wybrany kolor */
+  }
+
+  .right-side {
+    margin-left: 0;
+    padding: 10px; /* Dostosowanie odstępu wewnątrz right-side na mniejszych ekranach */
+    font-size: 40px; /* Dostosowanie rozmiaru czcionki dla lepszej czytelności na telefonach */
+  }
+
+  .word {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .input-field::placeholder {
+    color: white;
+  }
+
+  .input-field,
+  .login-button {
+    width: 90%;
+    font-size: 20px; /* Dostosowanie rozmiaru czcionki dla inputów na telefonach */
+    margin-bottom: 20px; /* Zmniejszenie marginesu na dole inputów */
+  }
+
+  .login-button {
+    width: 95%;
+  }
+
+  .login-form {
+    width: 90%;
+  }
+
+  .registration {
+    margin-top: 5px; /* Dostosowanie marginesu na górze dla sign in na telefonach */
+    font-size: small;
+  }
+
+  .login-button {
+    width: 100%; /* Pełna szerokość dla lepszej responsywności przycisku logowania */
+    margin-bottom: 20px;
+  }
+
+  /*.additional-links {*/
+  /*  flex-direction: column; !* Zmiana kierunku flex na kolumnowy dla dodatkowych linków na mniejszych ekranach *!*/
+  /*}*/
+
+  .icon-link {
+    margin-right: 0; /* Resetowanie marginesu dla ikon linków */
+    margin-bottom: 10px; /* Dodanie marginesu między ikonami */
+  }
+}
+@media screen and (max-width: 400px) {
+  #fitCheck {
+    font-size: 24vw; /* Zmniejszenie rozmiaru napisu FitCheck na mniejszych ekranach */
+  }
 }

@@ -17,7 +17,7 @@ class DefaultController extends AppController {
     }
     public function index()
     {
-        $this->checkIfLoggedIn();
+        $this->checkIfLozggedIn();
         $this->render('login');
     }
 
@@ -70,6 +70,8 @@ class DefaultController extends AppController {
 
     public function addTraining()
     {
+        $userEmail = $_COOKIE['user_email'] ?? null;
+
         $this->checkIfLoggedIn();
         if ($this->isPost()) {
             $description = $_POST['description'];
@@ -81,12 +83,14 @@ class DefaultController extends AppController {
             }
 
             // Dodanie treningu do bazy danych
+            // Add training with the user's email
+            $description = $_POST['description'];
+            $date = $_POST['date'];
+
             $trainingRepository = new TrainingRepository();
+            $trainingRepository->addTraining($description, $date, $userEmail);
 
-            // Użyj repozytorium, aby dodać trening do bazy danych
-            $trainingRepository->addTraining($description, $date);
-
-            // Po dodaniu treningu możesz przekierować użytkownika na stronę kalendarza
+            // Redirect to the calendar page
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/kalendarz");
         }

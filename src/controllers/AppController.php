@@ -8,7 +8,7 @@ class AppController {
         $this->request = $_SERVER['REQUEST_METHOD'];
     }
 
-    protected function isGet(): bool
+    protected function isGet(): boolzz
     {
         return $this->request === 'GET';
     }
