@@ -15,8 +15,6 @@ class Router {
         self::$routes[$url] = $view;
     }
 
-
-
     public static function run ($url) {
         $action = explode("/", $url)[0];
         if (!array_key_exists($action, self::$routes)) {

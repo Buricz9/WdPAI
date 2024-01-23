@@ -15,5 +15,6 @@ Router::post('registration', 'SecurityController');
 Router::get('cardio', 'DefaultController');
 Router::get('wolneCiezary', 'DefaultController');
 Router::get('maszyny', 'DefaultController');
+Router::post('addTraining', 'DefaultController'); // Dodaj tę linię
 
 Router::run($path);

@@ -10,26 +10,29 @@
 </head>
 <body>
 
-    <div class="top-bar">
-        <button >Twój profil</button>
-        <button onclick="location.href='main'">Strona główna</button>
-        <button>Pomoc</button>
-    </div>
+<div class="top-bar">
+    <button onclick="location.href='profil.php'">Twój profil</button>
+    <button onclick="location.href='main'">Strona główna</button>
+    <button>Pomoc</button>
+</div>
 
-  <main>
+<main>
     <section class="left-section">
-      <h1>Tutaj możesz podzielić się swoim treningiem, a także informacją na kiedy go planujesz</h1>
-      <button>Treningi publiczne</button>
-      <button>Treningi prywatne</button>
+        <h1>Tutaj możesz podzielić się swoim treningiem, a także informacją na kiedy go planujesz</h1>
+
+        <!-- Formularz do dodawania treningu -->
+        <form method="post" action="addTraining" class="training-form">
+            <label for="date">Data treningu:</label>
+            <input type="datetime-local" id="date" name="date" required>
+            <label for="description">Opis treningu:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit" class="submit-button">Dodaj trening</button>
+        </form>
+
     </section>
 
-    <section class="right-section">
-      <div id="calendar">
-        <!-- Kalendarz zostanie wstawiony dynamicznie za pomocą JavaScript -->
-      </div>
-    </section>
-  </main>
-
+</main>
 
 </body>
 </html>
