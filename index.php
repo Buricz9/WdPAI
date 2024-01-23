@@ -16,5 +16,7 @@ Router::get('cardio', 'DefaultController');
 Router::get('wolneCiezary', 'DefaultController');
 Router::get('maszyny', 'DefaultController');
 Router::post('addTraining', 'DefaultController'); // Dodaj tę linię
+Router::get('profil', 'DefaultController');
+Router::get('logout', 'SecurityController'); // Dodaj ścieżkę dla wylogowania
 
 Router::run($path);

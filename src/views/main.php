@@ -10,7 +10,7 @@
 <body>
 
     <div class="top-bar">
-        <button >Twój profil</button>
+        <button onclick="location.href='profil'">Twój profil</button>
         <button onclick="location.href='main'">Strona główna</button>
         <button>Pomoc</button>
     </div>

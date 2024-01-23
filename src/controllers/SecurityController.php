@@ -13,6 +13,16 @@ class SecurityController extends AppController {
         parent::__construct();
         $this->userRepository = new UserRepository();
     }
+
+    public function logout()
+    {
+        // Usunięcie ciasteczka sesji
+        setcookie('user_email', '', time() - 3600, '/');
+
+        // Przekierowanie użytkownika na stronę logowania (lub inną po wylogowaniu)
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
+    }
     public function login()
     {
         $userRepository = new UserRepository();
@@ -38,6 +48,7 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        setcookie('user_email', $user->getEmail(), time()+3600, '/');
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/main");
     }
