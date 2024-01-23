@@ -25,7 +25,8 @@
             <label for="date">Data treningu:</label>
             <input type="datetime-local" id="date" name="date" required>
             <label for="description">Opis treningu:</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea class="resizeable-textarea" id="description" name="description" required></textarea>
+<!--            <div class="editable-description" contenteditable name="description" required></div>-->
 
             <button type="submit" class="submit-button">Dodaj trening</button>
         </form>

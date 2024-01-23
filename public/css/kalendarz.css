@@ -39,7 +39,8 @@ main {
 
 .training-form {
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -54,8 +55,22 @@ textarea, input {
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
-}
+    border: solid 1px;
 
+}
+.resizeable-textarea {
+    min-height: 100px;
+    resize: vertical; /* Pozwala na zmianę rozmiaru tylko w pionie */
+    overflow-y: auto; /* Dodaj pasek przewijania tylko w pionie, gdy tekst jest dłuższy niż obszar */
+}
+#date{
+    width: 200px;
+}
 .submit-button {
     background-color: #c1bbbb;
+}
+@media screen and (max-width: 400px) {
+    .description{
+        width: 200px;
+    }
 }
