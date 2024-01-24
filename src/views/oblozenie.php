@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ... inne tagi head ... -->
     <link rel="stylesheet" href="../../public/css/oblozenie.css">
     <link rel="stylesheet" href="../../public/css/global.css">
+    <script type="text/javascript" src="../../public/js/oblozenie.js" defer></script>
 
-    <title>Strona</title>
+    <title>Obłożenie</title>
 </head>
 <body>
+<div class="top-bar">
+    <button onclick="location.href='profil'">Twój profil</button>
+    <button onclick="location.href='main'">Strona główna</button>
+    <button onclick="location.href='pomoc'">Pomoc</button>
+</div>
+<div id="container">
+    <header>
+        Wykres liczby użytkowników na Siłowni (Ostatnie Kilka Godzin)
+    </header>
+    <section>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </section>
+</div>
 
-    <div class="top-bar">
-        <button onclick="location.href='profil'">Twój profil</button>
-        <button onclick="location.href='main'">Strona główna</button>
-        <button onclick="location.href='pomoc'">Pomoc</button>
-    </div>
-
-    <div class="flex-container">
-        <div><a>Aktualna liczba osób na siłowni </a></div>
-        <div>Aktualna liczba osób w strefie maszyny</div>
-        <div >Aktualna liczba osób w strefie cardio</div>
-        <div >Aktualna liczba osób w strefie wolne ciężary</div>
-    </div>
+<script src="script.js"></script>
 </body>
 </html>

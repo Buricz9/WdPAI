@@ -98,7 +98,7 @@ body {
     overflow: hidden;
     position: relative;
     background-image: none;
-    background-color: burlywood; /* Twój wybrany kolor */
+    background-color: darkgrey; /* Twój wybrany kolor */
   }
 
   .right-side {

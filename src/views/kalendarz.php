@@ -43,7 +43,7 @@
                 foreach ($userTrainings as $training) {
                     echo '<li>';
                     echo '<strong>Data treningu:</strong> ' . $training['time'] . '<br>';
-                    echo '<strong>Opis treningu:</strong> ' . $training['description'];
+                    echo '<strong>Opis treninzzgu:</strong> ' . $training['description'];
                     echo '</li>';
                 }
             }
