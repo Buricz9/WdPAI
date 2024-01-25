@@ -41,3 +41,5 @@ We welcome contributions from the community. If you find a bug, have a feature r
 
 License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code for your own projects.
+![image](https://github.com/Buricz9/WdPAI/assets/119446577/56d1b9fb-2f42-43b9-920e-e4776fde4d8a)
+
