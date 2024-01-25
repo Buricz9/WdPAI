@@ -20,7 +20,6 @@
             <img src="src/images/gym2.png"  alt="Zdjęcie 2">
             <div class="caption">Dostępny sprzęt</div>
         </div>
-<!--        </a>-->
         <div onclick="location.href='kalendarz'">
             <img src="src/images/gym3.png" alt="Zdjęcie 3">
             <div class="caption">Kalendarz</div>
